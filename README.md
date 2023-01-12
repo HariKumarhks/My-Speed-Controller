@@ -1,6 +1,6 @@
-# The science of accelerated playback
-
 # NOTE: This is the same code from https://github.com/igrigorik/videospeed, but I've dissabled the toggling of reset button multiple times. Please Read this https://github.com/igrigorik/videospeed/issues/1004. This issue was not addressed by the developer. So I fixed it. Also I've dissabled the rewind and advance for Netflix as it causes some problem in Netflix. And changed the default key bindings. Hope you guys like it.
+
+# The science of accelerated playback
 
 **TL;DR: faster playback translates to better engagement and retention.**
 
