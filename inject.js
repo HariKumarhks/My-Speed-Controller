@@ -767,21 +767,22 @@ function runAction(action, value, e) {
 
     showController(controller);
 
+    const WEBSITES_TO_SKIP = ["netflix", "youtube"];
+
     if (!v.classList.contains("vsc-cancelled")) {
       if (action === "rewind") {
-        if (location.hostname.includes("netflix")) {
-          log("Netflix, so don't want to mess with it", 5);
-          console.log("Netflix, so don't want to mess with it");
-          // Netflix shows error when using this feature
+        if (WEBSITES_TO_SKIP.includes(location.hostname.split(".")[1])) {
+          console.log("Forbidden site to skip, so don't want to mess with it");
+          // Forbidden site to skip, shows error/double skip when using this feature
           return;
         }
         log("Rewind", 5);
         v.currentTime -= value;
       } else if (action === "advance") {
-        if (location.hostname.includes("netflix")) {
-          log("Netflix, so don't want to mess with it", 5);
-          console.log("Netflix, so don't want to mess with it");
-          // Netflix shows error when using this feature
+        if (WEBSITES_TO_SKIP.includes(location.hostname.split(".")[1])) {
+          log("Forbidden site to skip, so don't want to mess with it", 5);
+          console.log("Forbidden site to skip, so don't want to mess with it");
+          // Forbidden site to skip, shows error/double skip when using this feature
           return;
         }
         log("Fast forward", 5);
