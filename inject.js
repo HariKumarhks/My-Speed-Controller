@@ -176,6 +176,7 @@ function defineVideoController() {
 
   // added to AUDIO / VIDEO DOM elements
   //    vsc = reference to the videoController
+
   tc.videoController = function (target, parent) {
     if (target.vsc) {
       return target.vsc;
@@ -467,6 +468,7 @@ function setupListener() {
       log("Speed setting saved: " + speed, 5);
     });
     // show the controller for 1000ms if it's hidden.
+
     runAction("blink", null, null);
   }
 
@@ -609,7 +611,7 @@ function initializeNow(document) {
         if (!tc.mediaElements.length) {
           return false;
         }
-
+        // console.log("\n\nBINDRESSS::: ", tc.settings.keyBindings); // check
         var item = tc.settings.keyBindings.find((item) => item.key === keyCode);
         if (item) {
           runAction(item.action, item.value);
@@ -772,7 +774,7 @@ function runAction(action, value, e) {
     if (!v.classList.contains("vsc-cancelled")) {
       if (action === "rewind") {
         if (WEBSITES_TO_SKIP.includes(location.hostname.split(".")[1])) {
-          console.log("Forbidden site to skip, so don't want to mess with it");
+          // console.log("Forbidden site to skip, so don't want to mess with it");
           // Forbidden site to skip, shows error/double skip when using this feature
           return;
         }
@@ -781,7 +783,7 @@ function runAction(action, value, e) {
       } else if (action === "advance") {
         if (WEBSITES_TO_SKIP.includes(location.hostname.split(".")[1])) {
           log("Forbidden site to skip, so don't want to mess with it", 5);
-          console.log("Forbidden site to skip, so don't want to mess with it");
+          // console.log("Forbidden site to skip, so don't want to mess with it");
           // Forbidden site to skip, shows error/double skip when using this feature
           return;
         }
@@ -855,7 +857,7 @@ function pause(v) {
 }
 
 function resetSpeed(v, target, button) {
-  // change changed from toggle to reset
+  // changed from toggle to reset
   if (button === "reset") {
     if (v.playbackRate === 1.0) {
       return;
