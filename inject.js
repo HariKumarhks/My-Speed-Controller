@@ -14,13 +14,14 @@ var tc = {
     startHidden: false, // default: false
     controllerOpacity: 0.3, // default: 0.3
     keyBindings: [],
-    blacklist: `\
-      www.instagram.com
-      twitter.com
-      vine.co
-      imgur.com
-      teams.microsoft.com
-    `.replace(regStrip, ""),
+    blacklist: ``.replace(regStrip, ""),
+    // blacklist: `\
+    //   www.instagram.com
+    //   twitter.com
+    //   vine.com
+    //   imgur.com
+    //   teams.microsoft.com
+    // `.replace(regStrip, ""),
     defaultLogLevel: 4,
     logLevel: 3
   },
@@ -65,46 +66,46 @@ chrome.storage.sync.get(tc.settings, function (storage) {
     // UPDATE
     tc.settings.keyBindings.push({
       action: "slower",
-      key: Number(storage.slowerKeyCode) || 83,
-      value: Number(storage.speedStep) || 0.1,
+      key: Number(storage.slowerKeyCode) || 109,
+      value: Number(storage.speedStep) || 0.5,
       force: false,
       predefined: true
-    }); // default S
+    }); // default Num -
     tc.settings.keyBindings.push({
       action: "faster",
-      key: Number(storage.fasterKeyCode) || 68,
-      value: Number(storage.speedStep) || 0.1,
+      key: Number(storage.fasterKeyCode) || 107,
+      value: Number(storage.speedStep) || 0.5,
       force: false,
       predefined: true
-    }); // default: D
+    }); // default: Num +
     tc.settings.keyBindings.push({
       action: "rewind",
-      key: Number(storage.rewindKeyCode) || 90,
-      value: Number(storage.rewindTime) || 10,
+      key: Number(storage.rewindKeyCode) || 37,
+      value: Number(storage.rewindTime) || 5,
       force: false,
       predefined: true
-    }); // default: Z
+    }); // default: Left
     tc.settings.keyBindings.push({
       action: "advance",
-      key: Number(storage.advanceKeyCode) || 88,
-      value: Number(storage.advanceTime) || 10,
+      key: Number(storage.advanceKeyCode) || 39,
+      value: Number(storage.advanceTime) || 5,
       force: false,
       predefined: true
-    }); // default: X
+    }); // default: Right
     tc.settings.keyBindings.push({
       action: "reset",
-      key: Number(storage.resetKeyCode) || 82,
+      key: Number(storage.resetKeyCode) || 106,
       value: 1.0,
       force: false,
       predefined: true
-    }); // default: R
+    }); // default: Num *
     tc.settings.keyBindings.push({
       action: "fast",
-      key: Number(storage.fastKeyCode) || 71,
-      value: Number(storage.fastSpeed) || 1.8,
+      key: Number(storage.fastKeyCode) || 110,
+      value: Number(storage.fastSpeed) || 1,
       force: false,
       predefined: true
-    }); // default: G
+    }); // default: Num .
     tc.settings.version = "0.5.3";
 
     chrome.storage.sync.set({

@@ -19,11 +19,7 @@ var tcDefaults = {
     { action: "fast", key: 110, value: 1, force: false, predefined: true } // Num .
   ],
   // blacklist: `www.youtube.com`.replace(regStrip, "")
-  blacklist: `www.instagram.com
-    twitter.com
-    imgur.com
-    teams.microsoft.com
-  `.replace(regStrip, "")
+  blacklist: ``.replace(regStrip, "")
 };
 
 var keyBindings = [];
@@ -137,7 +133,7 @@ function add_shortcut() {
     <option value="rewind">Rewind</option>
     <option value="advance">Advance</option>
     <option value="reset">Reset speed</option>
-    <option value="fast">Preferred speed</option>
+    <option value="fast">Toggle speed</option>
     <option value="muted">Mute</option>
     <option value="pause">Pause</option>
     <option value="mark">Set marker</option>
@@ -145,7 +141,7 @@ function add_shortcut() {
     <option value="display">Show/hide controller</option>
     </select>
     <input class="customKey" type="text" placeholder="press a key"/>
-    <input class="customValue" type="text" placeholder="value (0.10)"/>
+    <input class="customValue" type="text" placeholder="value (0.5)"/>
     <select class="customForce">
     <option value="false">Do not disable website key bindings</option>
     <option value="true">Disable website key bindings</option>

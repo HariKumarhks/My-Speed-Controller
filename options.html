@@ -65,22 +65,45 @@
           <option value="true">Disable website key bindings</option>
         </select>
       </div>
+
       <div class="row customs" id="fast">
         <select class="customDo">
-          <option value="fast">Preferred speed</option>
+          <option value="fast">Toggle speed</option>
         </select>
         <input
           class="customKey"
           type="text"
           value=""
-          placeholder="press a key"
+          placeholder="Last non-reset speed"
+        />
+        <input
+          class="customValue"
+          type="text"
+          placeholder="Last non-reset speed"
+          disabled
+        />
+        <select class="customForce">
+          <option value="false">Do not disable website key bindings</option>
+          <option value="true">Disable website key bindings</option>
+        </select>
+      </div>
+      <!-- 
+      <div class="row customs" id="fast">
+        <select class="customDo">
+          <option value="fast">Toggle speed</option>
+        </select>
+        <input
+          class="customKey"
+          type="text"
+          value=""
+          placeholder="Last non-reset speed"
         />
         <input class="customValue" type="text" placeholder="value (1.00)" />
         <select class="customForce">
           <option value="false">Do not disable website key bindings</option>
           <option value="true">Disable website key bindings</option>
         </select>
-      </div>
+      </div> -->
       <div class="row customs" id="display">
         <select class="customDo">
           <option value="display">Show/hide controller</option>
