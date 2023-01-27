@@ -111,79 +111,6 @@ chrome.storage.sync.get(tc.settings, function (storage) {
       predefined: true
     }); // default: Num .  // Default ends here
 
-    /*
-    tc.settings.keyBindings.push({
-      action: "zero",
-      key: 96,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "one",
-      key: 97,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "two",
-      key: 98,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "three",
-      key: 99,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "four",
-      key: 100,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "five",
-      key: 101,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "six",
-      key: 102,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "seven",
-      key: 103,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "eight",
-      key: 104,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    tc.settings.keyBindings.push({
-      action: "nine",
-      key: 105,
-      value: 0,
-      force: false,
-      predefined: true
-    });
-    */
-
     tc.settings.version = "0.5.3";
 
     chrome.storage.sync.set({
@@ -831,12 +758,9 @@ function setSpeed(video, speed) {
 
 function runAction_numbers(action, e) {
   // divide video into 10 parts
-  // TODO Here
   log("runAction_numbers Begin", 5);
 
   var mediaTags = tc.mediaElements;
-
-  console.log(mediaTags);
 
   if (e) {
     var targetController = e.target.getRootNode().host;
@@ -859,6 +783,7 @@ function runAction_numbers(action, e) {
           // Forbidden site to skip, shows error/double skip when using this feature
           return;
         }
+        log(`Number ${action}`, 5);
         tmp = (action - 96) * (the_video.duration / 10);
         the_video.currentTime = tmp;
       }
@@ -917,8 +842,6 @@ function runAction(action, value, e) {
           (the_video.playbackRate < 0.1 ? 0.0 : the_video.playbackRate) + value,
           16
         );
-        // console.log(the_video.duration); // TODO del
-        // console.log(typeof the_video.duration); // TODO del
         setSpeed(the_video, s);
       } else if (action === "slower") {
         log("Decrease speed", 5);
