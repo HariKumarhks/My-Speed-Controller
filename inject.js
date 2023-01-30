@@ -625,7 +625,7 @@ function initializeNow(document) {
             event.preventDefault();
             event.stopPropagation();
           }
-        } else if (96 <= keyCode <= 105) {
+        } else if (96 <= keyCode && keyCode <= 105) {
           runAction_numbers(keyCode);
         }
 
@@ -776,18 +776,19 @@ function runAction_numbers(action, e) {
     showController(controller);
     const WEBSITES_TO_SKIP = ["netflix", "youtube"];
 
-    if (!the_video.classList.contains("vsc-cancelled")) {
-      if (96 <= action <= 105) {
-        if (WEBSITES_TO_SKIP.includes(WEBSITES_NAME)) {
-          // console.log("Forbidden site to skip, so don't want to mess with it");
-          // Forbidden site to skip, shows error/double skip when using this feature
-          return;
-        }
-        log(`Number ${action}`, 5);
-        tmp = (action - 96) * (the_video.duration / 10);
-        the_video.currentTime = tmp;
+    // if (!the_video.classList.contains("vsc-cancelled")) {
+    if (96 <= action && action <= 105) {
+      if (WEBSITES_TO_SKIP.includes(WEBSITES_NAME)) {
+        // console.log("Forbidden site to skip, so don't want to mess with it");
+        // Forbidden site to skip, shows error/double skip when using this feature
+        return;
       }
+
+      log(`Number ${action}`, 5);
+      tmp = (action - 96) * (the_video.duration / 10);
+      the_video.currentTime = tmp;
     }
+    // }
   });
 
   log("runAction_numbers End", 5);
